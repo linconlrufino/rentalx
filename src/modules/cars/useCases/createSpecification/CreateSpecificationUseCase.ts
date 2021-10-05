@@ -13,6 +13,7 @@ class CreateSpecificationUseCase {
             this.specificationsRepository.findByName(name);
 
         if (specificationAlreadyExists) {
+            console.log("passou aqui o lixo");
             throw new Error(" Specification already exists");
         }
 
