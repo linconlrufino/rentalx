@@ -50,7 +50,6 @@ class AuthenticateUserUseCase {
             },
             token,
         };
-
         return tokenReturn;
     }
 }
