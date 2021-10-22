@@ -58,9 +58,13 @@
                 }
                 ],
                 "import/no-extraneous-dependencies": [
-                "error",
-                { "devDependencies": ["**/*.spec.js"] }
-                ]
+                    "error",
+                    {
+                        "devDependencies": [
+                            "**/*.spec.js"
+                        ]
+                    }
+                ],
     },
     "settings": {
         "import/resolver": {
