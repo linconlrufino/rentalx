@@ -8,7 +8,7 @@ class CreateUserController {
         const { name, password, email, driver_license } = request.body;
 
         const createUserUseCase = container.resolve(CreateUserUseCase);
-
+ 
         await createUserUseCase.execute({
             name,
             password,
