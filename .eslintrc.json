@@ -64,7 +64,7 @@
                             "**/*.spec.js"
                         ]
                     }
-                ],
+                ]
     },
     "settings": {
         "import/resolver": {
