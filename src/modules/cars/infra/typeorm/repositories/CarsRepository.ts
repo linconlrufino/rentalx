@@ -12,8 +12,6 @@ class CarsRepository implements ICarsRepository {
         this.repository = getRepository(Car);
     }
 
-    create(data: ICreateCarDTO): Promise<Car> {
-    }
-    findByLicensePlate(license_plate: string): Promise<Car> {
-    }
+    create(data: ICreateCarDTO): Promise<Car> {}
+    findByLicensePlate(license_plate: string): Promise<Car> {}
 }
