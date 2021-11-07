@@ -17,8 +17,6 @@ class CreateCarController {
 
         const createCarUseCase = container.resolve(CreateCarUseCase);
 
-        console.log(license_plate);
-
         const car = await createCarUseCase.execute({
             name,
             description,
