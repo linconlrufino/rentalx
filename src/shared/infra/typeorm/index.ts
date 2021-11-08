@@ -12,7 +12,9 @@ import { Connection, createConnection, getConnectionOptions } from "typeorm";
 //     });
 // });
 
-export default async (host = "database"): Promise<Connection> => {
+export default async (
+    host = "database_ignite" /* Essa opção deverá ser EXATAMENTE o nome dado ao service do banco de dados */,
+): Promise<Connection> => {
     const defaultOptions = await getConnectionOptions();
 
     return createConnection(
