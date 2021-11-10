@@ -13,7 +13,7 @@ describe("List Cars", () => {
 
     it("should be able to list all available cars", async () => {
         const car = await carsRepositoryInMemory.create({
-            name: "Car 1",
+            name: "Car1",
             description: "Car Description",
             daily_rate: 110,
             license_plate: "ABC-1234",
@@ -27,9 +27,9 @@ describe("List Cars", () => {
         expect(cars).toEqual([car]);
     });
 
-    it("should be able to list all available cars by name", async () => {
+    it("should be able to list all available cars by brand", async () => {
         const car = await carsRepositoryInMemory.create({
-            name: "Car 2",
+            name: "Car2",
             description: "Car Description",
             daily_rate: 110,
             license_plate: "ABC-1234",
@@ -40,6 +40,46 @@ describe("List Cars", () => {
 
         const cars = await listCarsUseCase.execute({
             brand: "Car_brand_test",
+        });
+
+        console.log(cars);
+
+        expect(cars).toEqual([car]);
+    });
+
+    it("should be able to list all available cars by name", async () => {
+        const car = await carsRepositoryInMemory.create({
+            name: "Car3",
+            description: "Car Description",
+            daily_rate: 110,
+            license_plate: "ABC-12345",
+            fine_amount: 40,
+            brand: "Car_brand_test",
+            category_id: "category_id",
+        });
+
+        const cars = await listCarsUseCase.execute({
+            name: "Car3",
+        });
+
+        console.log(cars);
+
+        expect(cars).toEqual([car]);
+    });
+
+    it("should be able to list all available cars by category", async () => {
+        const car = await carsRepositoryInMemory.create({
+            name: "Car3",
+            description: "Car Description",
+            daily_rate: 110,
+            license_plate: "ABC-12345",
+            fine_amount: 40,
+            brand: "Car_brand_test",
+            category_id: "12345",
+        });
+
+        const cars = await listCarsUseCase.execute({
+            category_id: "12345",
         });
 
         console.log(cars);
