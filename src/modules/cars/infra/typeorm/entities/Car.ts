@@ -50,7 +50,7 @@ class Car {
     @JoinTable({
         name: "specifications_cars", // nome da tabela de relacionanento
         joinColumns: [{ name: "car_id" }], // nome da coluna dentro da nossa tabela de relacionamento que referencia a tabela em uso ( cars no caso)
-        inverseJoinColumns: [{ name: "specification_id" }], // é a outra coluna que referencia a tabela que esta dentro do many to many ( specification)
+        inverseJoinColumns: [{ name: "specification_id" }], //  é  a outra coluna que referencia a tabela que esta dentro do many to many ( specification)
     })
     specifications: Specification[];
 
