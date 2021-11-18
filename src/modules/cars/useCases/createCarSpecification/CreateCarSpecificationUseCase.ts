@@ -20,6 +20,8 @@ class CreateCarSpecificationUseCase {
         if (!carExists) {
             throw new AppError("Car does not exists!");
         }
+
+        // carExists.specifications;
     }
 }
 
