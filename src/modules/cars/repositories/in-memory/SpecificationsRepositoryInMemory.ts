@@ -11,15 +11,17 @@ class SpecificationsRepositoryInMemory implements ISpecificationsRepository {
     async create({
         name,
         description,
-    }: ICreateEspecificationDTO): Promise<void> {
+    }: ICreateEspecificationDTO): Promise<Specification> {
         const specification = new Specification();
 
-        Object.assign(Specification, {
+        Object.assign(specification, {
             name,
             description,
         });
 
         this.specifications.push(specification);
+
+        return specification;
     }
 
     async findByName(name: string): Promise<Specification> {

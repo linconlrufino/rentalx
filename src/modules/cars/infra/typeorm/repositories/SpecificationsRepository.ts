@@ -17,10 +17,12 @@ class SpecificationsRepository implements ISpecificationsRepository {
     async create({
         name,
         description,
-    }: ICreateEspecificationDTO): Promise<void> {
+    }: ICreateEspecificationDTO): Promise<Specification> {
         const specification = this.repository.create({ name, description });
 
         await this.repository.save(specification);
+
+        return specification;
     }
 
     async findByName(name: string): Promise<Specification> {
@@ -28,8 +30,9 @@ class SpecificationsRepository implements ISpecificationsRepository {
         return specification;
     }
 
-    findByIds(ids: string[]): Promise<Specification[]> {
-        throw new Error("Method not implemented.");
+    async findByIds(ids: string[]): Promise<Specification[]> {
+        const specifications = await this.repository.findByIds(ids);
+        return specifications;
     }
 }
 
