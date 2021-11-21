@@ -3,7 +3,6 @@
 **RN** => Regra de  Negócio
 
 # Cadastro de carro
-
 **RF**
 Deve ser possível cadastrar um novo carro.
 
@@ -36,11 +35,8 @@ Não deve ser possível cadastrar uma especificação já existente para o mesmo
 O usuario repsonsável pelo cadastro deve ser um usuário administrador.
 
 # Cadastro de imagens do carro
-
-
 **RF**
 Deve ser possível cadastrar a imagem do carro.
-Deve ser possível listar todos os carros
 
 **RNF**
 Utilizar o multer para upload dos arquivos.
@@ -48,7 +44,6 @@ Utilizar o multer para upload dos arquivos.
 **RN**
 O usuario deve poder cadastrar mais de uma imagem para o mesmo carro.
 O usuario repsonsável pelo cadastro deve ser um usuário administrador.
-
 
 # Aluguel de carro
 
