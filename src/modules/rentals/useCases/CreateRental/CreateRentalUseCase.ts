@@ -38,7 +38,6 @@ class CreateRentalUseCase {
             throw new AppError("There's a rental in progress for user!");
         }
 
-        // o aluguel deve ter duração mínima de 24 horas.
         const expectedReturnDateFormat = dayjs(expected_return_date)
             .utc()
             .local()

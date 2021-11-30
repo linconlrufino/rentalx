@@ -30,7 +30,7 @@ describe("Create Rental", () => {
         console.log(rental);
     });
 
-    it(" should not be able to create a new rental if there is another openm to the same user", async () => {
+    it(" should not be able to create a new rental if there is another open to the same user", async () => {
         expect(async () => {
             await createRentalUseCase.execute({
                 user_id: "12345",
@@ -46,7 +46,7 @@ describe("Create Rental", () => {
         }).rejects.toBeInstanceOf(AppError);
     });
 
-    it(" should not be able to create a new rental if there is another openm to the same car", async () => {
+    it(" should not be able to create a new rental if there is another open to the same car", async () => {
         expect(async () => {
             await createRentalUseCase.execute({
                 user_id: "123",
