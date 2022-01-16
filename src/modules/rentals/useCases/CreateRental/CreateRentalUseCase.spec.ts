@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 
+import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
 import { RentalsRepositoryInMemory } from "@modules/rentals/repositories/in-memory/RentalsRepositoryInMemory";
 import { DayjsDateProvider } from "@shared/container/providers/DateProvider/implementations/DayjsDateProvider";
 import { AppError } from "@shared/errors/AppError";
@@ -8,6 +9,7 @@ import { CreateRentalUseCase } from "./CreateRentalUseCase";
 
 let createRentalUseCase: CreateRentalUseCase;
 let rentalsRepositoryInMemory: RentalsRepositoryInMemory;
+let carsRepositoryInMemory: CarsRepositoryInMemory;
 let dayJsProvider: DayjsDateProvider;
 
 describe("Create Rental", () => {
@@ -15,9 +17,11 @@ describe("Create Rental", () => {
     beforeEach(() => {
         rentalsRepositoryInMemory = new RentalsRepositoryInMemory();
         dayJsProvider = new DayjsDateProvider();
+        carsRepositoryInMemory = new CarsRepositoryInMemory();
         createRentalUseCase = new CreateRentalUseCase(
             rentalsRepositoryInMemory,
             dayJsProvider,
+            carsRepositoryInMemory,
         );
     });
 
@@ -30,8 +34,6 @@ describe("Create Rental", () => {
 
         expect(rental).toHaveProperty("id");
         expect(rental).toHaveProperty("start_date");
-
-        console.log(rental);
     });
 
     it(" should not be able to create a new rental if there is another open to the same user", async () => {
