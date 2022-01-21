@@ -9,13 +9,16 @@
         }
     },
     "paths":{
-        "/categories":{
+        "/categories": {
             "post":{
                 "tags":[
                     "Category"
                 ],
                 "summary":"Create a category",
                 "description":"Crate a new category",
+                "security": [
+                    { "bearerAuth": []}
+                ],
                 "requestBody":{
                     "content":{
                         "application/json":{
@@ -77,7 +80,7 @@
                 }
             }
         },
-        "/categories/import":{
+        "/categories/import": {
             "post":{
                 "tags": ["Category"],
                 "summary": "Upload a new category",
@@ -104,7 +107,7 @@
                 }
             }
         },
-        "/specifications":{
+        "/specifications": {
             "post":{
                 "tags":[
                     "Specifications"
@@ -129,6 +132,38 @@
                     }
                 }
             }
+        },
+        "/sessions": {
+            "post": {
+                "tags":["Session"],
+                "summary":"Authentication user",
+                "description":"Authentication user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema" : {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type":"string"
+                                    },
+                                    "password": {
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description" : "Sucess"
+                    },
+                    "400":{
+                        "description" : "Email or Password incorrect!"
+                    }
+                }
+            }
         }
     },
     "definitions":{
@@ -141,6 +176,15 @@
                 "description":{
                     "type":"string"
                 }
+            }
+        }
+    },
+    "components":{
+        "securitySchemes":{
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat":"JWT"
             }
         }
     }
