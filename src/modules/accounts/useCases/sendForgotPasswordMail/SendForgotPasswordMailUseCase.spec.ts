@@ -3,7 +3,6 @@ import { UserTokensRepositoryInMemory } from "@modules/accounts/repositories/in-
 import { IUserTokensRepository } from "@modules/accounts/repositories/IUserTokensRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { DayjsDateProvider } from "@shared/container/providers/DateProvider/implementations/DayjsDateProvider";
-import { EtherealMailProvider } from "@shared/container/providers/MailProvider/implementations/EtherealMailProvider";
 import { MailProviderInMemory } from "@shared/container/providers/MailProvider/in-memory/MailProviderInMemory";
 import { AppError } from "@shared/errors/AppError";
 

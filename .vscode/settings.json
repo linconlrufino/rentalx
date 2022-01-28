@@ -3,6 +3,7 @@
         "dtos",
         "middlewares",
         "openapi",
+        "pepeu",
         "rentalx",
         "rentx",
         "respawn",
